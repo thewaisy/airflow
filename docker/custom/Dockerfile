@@ -27,7 +27,8 @@ RUN pip install 'apache-airflow[apache.spark]' \
     && pip install 'apache-airflow[elasticsearch]' \
     && pip install 'apache-airflow[presto]' \
     && pip install 'apache-airflow[virtualenv]' \
-    && pip install 'apache-airflow[slack]' \
-    && pip install -r /requirements.txt
-
+    && pip install 'apache-airflow[slack]'
+    
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
 

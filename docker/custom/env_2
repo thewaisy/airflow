@@ -10,9 +10,9 @@ AIRFLOW__SCHEDULER__SCHEDULER_HEARTBEAT_SEC=10
 AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=true
 AIRFLOW__API__AUTH_BACKEND=airflow.api.auth.backend.basic_auth
 
-AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres_12/airflow
+AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres_12/airflow
 AIRFLOW__CELERY__BROKER_URL=redis://:@redis:6379/0
-AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://airflow:airflow@postgres_12/airflow
+AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://postgres:postgres@postgres_12/airflow
 
 AIRFLOW__CORE__FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
 
@@ -26,7 +26,7 @@ AIRFLOW__WEBSERVER__DEFAULT_UI_TIMEZONE=Asia/Seoul
 
 # store_dag_code
 AIRFLOW__CORE__STORE_DAG_CODE=False
-AIRFLOW__CORE__MIN_SERIALIZED_DAG_FETCH_INTERVAL
+# AIRFLOW__CORE__MIN_SERIALIZED_DAG_FETCH_INTERVAL
 
 # 예제
 AIRFLOW__CORE__LOAD_EXAMPLES=false

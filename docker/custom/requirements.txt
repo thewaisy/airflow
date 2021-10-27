@@ -5,3 +5,4 @@ pyhive==0.6.4
 cython
 wheel
 cryptography
+PyYAML==6.0

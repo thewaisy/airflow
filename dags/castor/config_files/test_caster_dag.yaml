@@ -1,0 +1,52 @@
+dag:
+  dag_id: 'test_caster_dag'
+  default_args: '{"owner": "hanyoon", "start_date": "2021-11-13"}'
+  schedule_interval: '0 0 * * *'
+  catchup: False
+  max_active_runs: 3
+  concurrency: 10
+  tags:
+    - example
+    - test
+    - caster
+tasks:
+    - name: 'start'
+      strategy: 'DummyOperatorStrategy'
+    - name: 't1'
+      strategy: 'PythonOperatorStrategy'
+      depends_on: 
+        - 'start'
+      args:
+        retries: 2
+        trigger_rule: 'all_success'
+        provide_context: True
+        python_callable: 'print_params'
+        op_kwargs:
+          param1: 'value1' 
+    - name: 't2'
+      strategy: 'PythonOperatorStrategy'
+      depends_on: 
+        - 'start'
+      args:
+        retries: 2
+        trigger_rule: 'all_success'
+        provide_context: True
+        python_callable: 'print_params'
+        op_kwargs:
+          param1: 'value1'
+    - name: 't3'
+      strategy: 'PythonOperatorStrategy'
+      depends_on: 
+        - 't1'
+        - 't2'
+      args:
+        retries: 2
+        trigger_rule: 'all_success'
+        provide_context: True
+        python_callable: 'print_params'
+        op_kwargs:
+          param1: 'value1' 
+    - name: 'end'
+      strategy: 'DummyOperatorStrategy'
+      depends_on: 
+        - 't3'

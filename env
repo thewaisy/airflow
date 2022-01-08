@@ -11,7 +11,7 @@ AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=true
 AIRFLOW__API__AUTH_BACKEND=airflow.api.auth.backend.basic_auth
 
 AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres_12/airflow
-AIRFLOW__CELERY__BROKER_URL=redis://:@redis:6379/0
+AIRFLOW__CELERY__BROKER_URL=redis://:@redis:6379/0git 
 AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://postgres:postgres@postgres_12/airflow
 
 AIRFLOW__CORE__FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
@@ -32,5 +32,5 @@ AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL=30
 # 예제
 AIRFLOW__CORE__LOAD_EXAMPLES=false
 
-# etc
-ADDITIONAL_PYTHON_DEPS="PyAthena"
+# pythonpath
+PYTHONPATH=['/usr/local/lib/python38.zip','/usr/local/lib/python3.8','/usr/local/lib/python3.8/lib-dynload','/home/airflow/.local/lib/python3.8/site-packages','/usr/local/lib/python3.8/site-packages','/opt/airflow/utils']

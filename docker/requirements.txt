@@ -1,5 +1,5 @@
 # pip install -r requirements.txt
-# https://airflow.apache.org/docs/1.10.12/installation.html#getting-airflow
+# https://airflow.apache.org/docs/2.1.4/installation.html#getting-airflow
 boto3==1.17.71
 pyhive==0.6.4
 cython

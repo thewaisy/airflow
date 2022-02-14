@@ -1,20 +1,24 @@
 # server timezone 설정
 TZ=Asia/Seoul
-
 AIRFLOW_HOME=/opt/airflow
 
+# pip
+_PIP_ADDITIONAL_REQUIREMENTS=''
+
+# base
 AIRFLOW__CORE__EXECUTOR=CeleryExecutor
 AIRFLOW__CORE__PARALLELISM=32
 AIRFLOW__CORE__LOAD_DEFAULT_CONNECTIONS=False
-AIRFLOW__SCHEDULER__SCHEDULER_HEARTBEAT_SEC=10
+AIRFLOW__CORE__FERNET_KEY=''
 AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=true
+AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres_12/airflow
+AIRFLOW__CELERY__BROKER_URL=redis://:@redis:6379/0
+AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://postgres:postgres@postgres_12/airflow
+AIRFLOW__SCHEDULER__SCHEDULER_HEARTBEAT_SEC=10
 AIRFLOW__API__AUTH_BACKEND=airflow.api.auth.backend.basic_auth
 
-AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres_12/airflow
-AIRFLOW__CELERY__BROKER_URL=redis://:@redis:6379/0git 
-AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://postgres:postgres@postgres_12/airflow
-
-AIRFLOW__CORE__FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
+# 보안
+AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
 
 # 계정 설정
 _AIRFLOW_WWW_USER_USERNAME=airflow
